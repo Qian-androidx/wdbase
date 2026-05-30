@@ -19,18 +19,18 @@ android {
     }
 
 }
-afterEvaluate {
-    publishing {
-        publications {
-            create("release", MavenPublication) {
-                from components.findByName("release")
-                groupId = "com.github.Qian-androidx"
-                artifactId = "Wdbase"
-                version = "v1.0.0"
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create("release", MavenPublication) {
+//                from components.findByName("release")
+//                groupId = "com.github.Qian-androidx"
+//                artifactId = "Wdbase"
+//                version = "v1.0.0"
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 //    implementation libs.appcompat
