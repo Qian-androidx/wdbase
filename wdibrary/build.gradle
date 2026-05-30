@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     id("maven-publish")
+
 }
 
 android {
@@ -18,9 +19,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-//    kotlinOptions {
-//        jvmTarget = "17"
-//    }
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
 
 }
 afterEvaluate {
@@ -42,6 +45,12 @@ tasks.configureEach { task ->
     }
 }
 
+
+configurations.all {
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+}
 dependencies {
 //    implementation libs.appcompat
 //    implementation libs.material
@@ -49,5 +58,6 @@ dependencies {
    // androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
     implementation 'org.bouncycastle:bcprov-jdk15on:1.49'
+
 
 }
