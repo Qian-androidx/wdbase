@@ -33,11 +33,11 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation libs.appcompat
-    implementation libs.material
+//    implementation libs.appcompat
+//    implementation libs.material
     testImplementation libs.junit
-    androidTestImplementation libs.espresso.core
+   // androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
     implementation 'org.bouncycastle:bcprov-jdk15on:1.49'
-//    implementation files('libs/bcprov-jdk15on-1.49.jar')
+
 }
