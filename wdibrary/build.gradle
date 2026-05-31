@@ -70,7 +70,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.49'
+    api 'org.bouncycastle:bcprov-jdk15on:1.49'
 
 
 }
