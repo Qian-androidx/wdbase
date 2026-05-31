@@ -1,7 +1,2 @@
 jdk:
-  - openjdk11
-gradle:
-  tasks:
-    - :wdibrary:clean
-    - :wdibrary:assembleRelease
-    - :wdibrary:publishToMavenLocal
+  - openjdk17
