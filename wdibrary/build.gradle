@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
-    id("maven-publish")
+    //id("maven-publish")
+    id 'maven-publish'
 
 }
 
@@ -22,19 +23,34 @@ android {
 
 
 }
-afterEvaluate {
-    publishing {
-        publications {
-            create("release", MavenPublication) {
-                //from components.findByName("release")
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create("release", MavenPublication) {
+//                //from components.findByName("release")
+//                from(components.findByName("release"))
+//                groupId = "com.github.Qian-androidx"
+//                artifactId = "wdbase"
+//                version = "v1.0.5"
+//            }
+//        }
+//    }
+//}
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.Qian-androidx'
+            artifactId = 'wdbase'
+            version = '1.0.6'
+            afterEvaluate {
+                //from components.release
                 from(components.findByName("release"))
-                groupId = "com.github.Qian-androidx"
-                artifactId = "wdbase"
-                version = "v1.0.5"
             }
         }
     }
 }
+
 
 //tasks.configureEach { task ->
 //    if (task.class.name.contains("JdkImageTransform")) {
@@ -43,16 +59,16 @@ afterEvaluate {
 //}
 
 
-//configurations.all {
-//    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
-//    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
-//    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
-//}
+configurations.all {
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
+    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+}
 dependencies {
-//    implementation libs.appcompat
-//    implementation libs.material
+    implementation libs.appcompat
+    implementation libs.material
     testImplementation libs.junit
-   // androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
     implementation 'org.bouncycastle:bcprov-jdk15on:1.49'
 
